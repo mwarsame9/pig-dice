@@ -13,6 +13,9 @@ Player.prototype.rollDie = function() {
   this.roll = Math.floor((Math.random() * 6) + 1);
 };
 
+// Player.prototype.holdScore = function () {
+//   this.
+// };
 
 //front end logic
 
@@ -57,9 +60,17 @@ $(document).ready(function(){
           //$("#p1Score").text(player1.score);
           });
       }
+    });
     //
+      $(function() {
+  	$("#p1hold").click(function() {
+      $("dl#p1roll").hide();
+      $("dl#p1hold").hide();
+      $("#p2roll").show();
+      $("#p2hold").show();
+      });
+    });
 
-  });
 // ---------------------------------------------------------Player 2
   $("dl#p2roll").click(function(event) {
     event.preventDefault();
@@ -97,12 +108,14 @@ $(document).ready(function(){
     //
 
   });
-  /*  $("dl#p2roll").click(function(event){
-      event.preventDefault();
-      player2.rollDie();
-      $(".p2roll").text(player2.roll);
-
-    });*/
+  $(function() {
+$("#p2hold").click(function() {
+  $("dl#p2roll").hide();
+  $("dl#p2hold").hide();
+  $("#p1roll").show();
+  $("#p1hold").show();
+  });
+});
 
 
 
