@@ -45,7 +45,21 @@ $(document).ready(function(){
         $("#p2hold").show();
         //-------------------------to do: show totalScore with no points added
 
-      } else {
+      }
+      else if (player1.score >= 100) {
+      //show 'bust' or turn is over for player1
+      $(".p1roll").text("WINNER!");
+      //hide roll & hold options for player1
+      // $("dl#p1hold").hide();
+      $("dl#p1roll").hide();
+      $("dl#p1hold").hide();
+      //show roll & hold options for next player, player2
+      $("#p2roll").hide();
+      $("#p2hold").hide();
+      //-------------------------to do: show totalScore with no points added
+
+    }
+      else {
         //roll is not equal to 1 & adds to score
         player1.score = (player1.score + player1.roll);
         //displays score in score box
@@ -58,8 +72,9 @@ $(document).ready(function(){
           player1.rollDie();
 
           //$("#p1Score").text(player1.score);
-          });
+          })
       }
+
     });
     //
       $(function() {
@@ -88,6 +103,17 @@ $(document).ready(function(){
         //show roll & hold options for next player, player2
         $("#p1roll").show();
         $("#p1hold").show();
+        //-------------------------to do: show totalScore with no points added
+      }   else if (player2.score >= 100) {
+        //show 'bust' or turn is over for player1
+        $(".p2roll").text("WINNER!");
+        //hide roll & hold options for player1
+        // $("dl#p1hold").hide();
+        $("dl#p1roll").hide();
+        $("dl#p1hold").hide();
+        //show roll & hold options for next player, player2
+        $("#p2roll").hide();
+        $("#p2hold").hide();
         //-------------------------to do: show totalScore with no points added
 
       } else {
