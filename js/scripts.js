@@ -36,8 +36,12 @@ $(document).ready(function(){
     console.log(player1.roll);
     //conditional statement for when player1 roll equals 1
       if (player1.roll === 1) {
+        player1.currentScore = 0;
+        $("#p1currentScore").text(player1.currentScore);
         //show 'bust' or turn is over for player1
         $(".p1roll").text("bust!");
+        // player1.roll = 0;
+        // $(".p1roll").text(player1.roll);
         //hide roll & hold options for player1
         // $("dl#p1hold").hide();
         $("dl#p1roll").hide();
@@ -49,7 +53,7 @@ $(document).ready(function(){
       }
       else if (player1.totalScore >= 100) {
         //show 'bust' or turn is over for player1
-        $(".p1roll").text("WINNER!");
+        $("#p1Score").text("WINNER!");
         //hide roll & hold options for player1
         // $("dl#p1hold").hide();
         $("dl#p1roll").hide();
@@ -61,6 +65,7 @@ $(document).ready(function(){
 
       }
       else  {
+
         //roll is not equal to 1 & adds to score
         player1.currentScore = (player1.currentScore + player1.roll);
         //displays score in score box
@@ -82,7 +87,11 @@ $(document).ready(function(){
       $(function() {
   	$("#p1hold").click(function() {
       player1.totalScore = (player1.totalScore + player1.currentScore);
+      player1.currentScore = 0;
+      $("#p1currentScore").text(player1.currentScore);
       $("#p1Score").text(player1.totalScore);
+      player2.roll = 0;
+      $(".p2roll").text(player2.roll);
       $("dl#p1roll").hide();
       $("dl#p1hold").hide();
       $("#p2roll").show();
@@ -98,8 +107,12 @@ $(document).ready(function(){
     console.log(player2.roll);
     //conditional statement for when player1 roll equals 1
       if (player2.roll === 1) {
+        player2.currentScore = 0;
+        $("#p2currentScore").text(player2.currentScore);
         //show 'bust' or turn is over for player1
         $(".p2roll").text("bust!");
+        player1.roll = 0;
+        $(".p1roll").text(player1.roll);
         //hide roll & hold options for player1
         // $("dl#p1hold").hide();
         $("dl#p2roll").hide();
@@ -108,9 +121,9 @@ $(document).ready(function(){
         $("#p1roll").show();
         $("#p1hold").show();
         //-------------------------to do: show totalScore with no points added
-      } else if (player2.currentScore >= 100) {
+      } else if (player2.totalScore >= 100) {
         //show 'bust' or turn is over for player1
-        $(".p2roll").text("WINNER!");
+        $("#p2Score").text("WINNER!");
         //hide roll & hold options for player1
         // $("dl#p1hold").hide();
         $("dl#p1roll").hide();
@@ -141,12 +154,15 @@ $(document).ready(function(){
   $(function() {
   $("#p2hold").click(function() {
     player2.totalScore = (player2.totalScore + player2.currentScore);
+    player2.currentScore = 0;
+    $("#p2currentScore").text(player2.currentScore);
     $("#p2Score").text(player2.totalScore);
+    player1.roll = 0;
+    $(".p1roll").text(player1.roll);
     $("dl#p2roll").hide();
     $("dl#p2hold").hide();
     $("#p1roll").show();
     $("#p1hold").show();
-
     });
 
   });
