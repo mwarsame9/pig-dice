@@ -1,6 +1,6 @@
 # Pig-Dice
 
-### By jin camou
+### By Jin Camou and Mohamed Warsame
 #### Duo Project 2017.04.05
 
 ## Description
@@ -32,4 +32,4 @@
 #### No known bugs at this time
 
 ## Legal
-#### Licensed 2017, jin camou
+#### Licensed 2017, Jin Camou and Mohamed Warsame
