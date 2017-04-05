@@ -1,0 +1,12 @@
+.dl-horizontal {
+  font-size: 2em;
+}
+
+dt:hover{
+  color:#EE7E8C;
+  font-style: oblique;
+}
+
+#p2roll, #p2hold {
+  display:none;
+}
