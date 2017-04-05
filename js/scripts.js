@@ -1,8 +1,9 @@
 //business logic
 
 // function on player object, has 2 properties- score and roll
-function Player(score, roll, hold, win) {
-  this.score = 0;
+function Player(currentScore, totalScore, roll, hold, win) {
+  this.currentScore = 0;
+  this.totalScore = 0;
   this.roll = roll;
   this.hold = hold;
   this.win = 100;
@@ -24,8 +25,9 @@ $(document).ready(function(){
   var player1 = new Player();
   var player2 = new Player();
   //show total score for each player
-  $("#p1Score").text(player1.score);
-  $("#p2Score").text(player2.score);
+  $("#p1currentScore").text(player1.currentScore);
+  $("#p2currentScore").text(player2.currentScore);
+  // $("#currentScore").text(currentScore.score);
   //program sees player 1 using click method to roll
   $("dl#p1roll").click(function(event) {
     event.preventDefault();
@@ -44,26 +46,26 @@ $(document).ready(function(){
         $("#p2roll").show();
         $("#p2hold").show();
         //-------------------------to do: show totalScore with no points added
+      }
+      else if (player1.totalScore >= 100) {
+        //show 'bust' or turn is over for player1
+        $(".p1roll").text("WINNER!");
+        //hide roll & hold options for player1
+        // $("dl#p1hold").hide();
+        $("dl#p1roll").hide();
+        $("dl#p1hold").hide();
+        //show roll & hold options for next player, player2
+        $("#p2roll").hide();
+        $("#p2hold").hide();
+        //-------------------------to do: show totalScore with no points added
 
       }
-      else if (player1.score >= 100) {
-      //show 'bust' or turn is over for player1
-      $(".p1roll").text("WINNER!");
-      //hide roll & hold options for player1
-      // $("dl#p1hold").hide();
-      $("dl#p1roll").hide();
-      $("dl#p1hold").hide();
-      //show roll & hold options for next player, player2
-      $("#p2roll").hide();
-      $("#p2hold").hide();
-      //-------------------------to do: show totalScore with no points added
-
-    }
-      else {
+      else  {
         //roll is not equal to 1 & adds to score
-        player1.score = (player1.score + player1.roll);
+        player1.currentScore = (player1.currentScore + player1.roll);
         //displays score in score box
-        $("#p1Score").text(player1.score);
+        $("#p1currentScore").text(player1.currentScore);
+
         //gives user option to roll again
         $(".p1roll").text(player1.roll);
         //second click function for player to roll die again
@@ -72,13 +74,15 @@ $(document).ready(function(){
           player1.rollDie();
 
           //$("#p1Score").text(player1.score);
-          })
+        })
       }
 
     });
     //
       $(function() {
   	$("#p1hold").click(function() {
+      player1.totalScore = (player1.totalScore + player1.currentScore);
+      $("#p1Score").text(player1.totalScore);
       $("dl#p1roll").hide();
       $("dl#p1hold").hide();
       $("#p2roll").show();
@@ -104,7 +108,7 @@ $(document).ready(function(){
         $("#p1roll").show();
         $("#p1hold").show();
         //-------------------------to do: show totalScore with no points added
-      }   else if (player2.score >= 100) {
+      } else if (player2.currentScore >= 100) {
         //show 'bust' or turn is over for player1
         $(".p2roll").text("WINNER!");
         //hide roll & hold options for player1
@@ -118,9 +122,9 @@ $(document).ready(function(){
 
       } else {
         //roll is not equal to 1 & adds to score
-        player2.score = (player2.score + player2.roll);
+        player2.currentScore = (player2.currentScore + player2.roll);
         //displays score in score box
-        $("#p2Score").text(player2.score);
+        $("#p2currentScore").text(player2.currentScore);
         //gives user option to roll again
         $(".p2roll").text(player2.roll);
         //second click function for player to roll die again
@@ -135,15 +139,15 @@ $(document).ready(function(){
 
   });
   $(function() {
-$("#p2hold").click(function() {
-  $("dl#p2roll").hide();
-  $("dl#p2hold").hide();
-  $("#p1roll").show();
-  $("#p1hold").show();
+  $("#p2hold").click(function() {
+    player2.totalScore = (player2.totalScore + player2.currentScore);
+    $("#p2Score").text(player2.totalScore);
+    $("dl#p2roll").hide();
+    $("dl#p2hold").hide();
+    $("#p1roll").show();
+    $("#p1hold").show();
+
+    });
+
   });
-});
-
-
-
-
 });
