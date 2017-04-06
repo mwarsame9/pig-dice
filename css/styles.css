@@ -1,3 +1,9 @@
+body {
+  background-color: #526B54;
+  color: #F2CC74;
+  font-family: 'Bungee Hairline', cursive;
+}
+
 .dl-horizontal {
   font-size: 2em;
 }
@@ -5,17 +11,37 @@
 dt:hover{
   color:#EE7E8C;
   font-style: oblique;
+  image url(img/dice2.gif);
 }
 
 #p2roll, #p2hold {
   display:none;
 }
 
-body {
-  background-color: #526B54;
-}
+
 
 .jumbotron {
-  background-color: #8FB996;
+  background-color: #284832;
   margin-top: 20px;
+  padding: 45%;
+}
+
+h3, h5, h6 {
+  color: #F2CC74;
+  text-align: center;
+}
+
+/*#p1currentScore, #p2currentScore {
+  font-size: 40px;
+}*/
+
+h6 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 38px;
 }
