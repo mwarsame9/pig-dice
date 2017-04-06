@@ -10,3 +10,12 @@ dt:hover{
 #p2roll, #p2hold {
   display:none;
 }
+
+body {
+  background-color: #526B54;
+}
+
+.jumbotron {
+  background-color: #8FB996;
+  margin-top: 20px;
+}

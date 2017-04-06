@@ -1,13 +1,17 @@
 //business logic
 
 // function on player object, has 2 properties- score and roll
-function Player(currentScore, totalScore, roll, hold, win) {
+function Player(currentScore, totalScore, roll) {
   this.currentScore = 0;
   this.totalScore = 0;
   this.roll = roll;
-  this.hold = hold;
-  this.win >= 10;
+  // this.hold = hold;
+  // this.win >= 10;
 }
+// function Game(player1){
+//   this.currentPlayer=player1;
+// }
+
 
 // prototype using rollDie method with function to return a random number when die is rolled.
 Player.prototype.rollDie = function() {
@@ -22,6 +26,7 @@ $(document).ready(function(){
   //define player 1 & 2 as functions
   var player1 = new Player();
   var player2 = new Player();
+  // var newGame = new Game(player1);
   //display current score for each player
   $("#p1currentScore").text(player1.currentScore);
   $("#p2currentScore").text(player2.currentScore);
@@ -29,6 +34,7 @@ $(document).ready(function(){
   //------------------------------------------------program sees player 1 using click method to roll
   $("dl#p1roll").click(function(event) {
     event.preventDefault();
+
     //rollDie method on player1 stores number that is generated
     player1.rollDie();
     //conditional statement for when player1 roll equals 1
@@ -77,7 +83,7 @@ $(document).ready(function(){
       $("dl#p1hold").hide();
       $("#p2roll").show();
       $("#p2hold").show();
-        if (player1.totalScore >= 10) {
+        if (player1.totalScore >= 100) {
           //show 'bust' or turn is over for player1
           $("#p1Score").text("WINNER!");
           //hide roll & hold options for player1
@@ -142,7 +148,7 @@ $(document).ready(function(){
     $("dl#p2hold").hide();
     $("#p1roll").show();
     $("#p1hold").show();
-    if (player2.totalScore >= 10) {
+    if (player2.totalScore >= 100) {
       //show 'bust' or turn is over for player1
       $("#p2Score").text("WINNER!");
       //hide roll & hold options for player1
@@ -152,7 +158,7 @@ $(document).ready(function(){
       //show roll & hold options for next player, player2
       $("#p2roll").hide();
       $("#p2hold").hide();
-        
+
     }
   });
 });
