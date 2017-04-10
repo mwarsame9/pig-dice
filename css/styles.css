@@ -11,7 +11,6 @@ body {
 dt:hover{
   color:#EE7E8C;
   font-style: oblique;
-  image url(img/dice2.gif);
 }
 
 #p2roll, #p2hold {
@@ -27,8 +26,9 @@ dt:hover{
 }
 
 h3, h5, h6 {
-  color: #F2CC74;
+  color: white;
   text-align: center;
+  font-weight: bolder;
 }
 
 /*#p1currentScore, #p2currentScore {
