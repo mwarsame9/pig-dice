@@ -4,7 +4,7 @@
 #### Duo Project 2017.04.05
 
 ## Description
-#### .
+#### A two player game where each player rolls a die until s/he rolls a 0 or passes.
 
 ## Setup
 #### Clone the repository and open the HTML in the web browser of your convenience.
